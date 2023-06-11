@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--For tree view-->
+    <record id="view_employee_parking_tree" model="ir.ui.view">
+        <field name="name">employee.parking.reg.tree</field>
+        <field name="model">employee.parking.reg</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="emp_type" string="Employee Type"/>
+                <field name="name" string="Name"/>
+                <field name="reg_no" string="Registration No"/>
+                <field name="vehicle_num" string="Vehicle Number"/>
+                <field name="phone_num" string="Phone No"/>
+
+            </tree>
+        </field>
+    </record>
+    <!--End of tree view-->
+
+    <!--For form view-->
+    <record id="view_employee_parking_form" model="ir.ui.view">
+        <field name="name">employee.parking.reg.form</field>
+        <field name="model">employee.parking.reg</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!--                    <field name="image" widget="image" class="oe_avatar "/>-->
+                    <div class="oe_title">
+                        <h2>
+                            <field name="emp_type" string="Employee Type"/>
+
+                        </h2>
+                        <h4>
+                            <label for='name' string='Employee Name' class="oe_edit_only"/>
+                            <field name="name"/>
+                        </h4>
+                        <h6>
+                            <label for='reg_no' string='Registration No' class="oe_edit_only"/>
+                            <field name="reg_no"/>
+                        </h6>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="vehicle_num" string="Vehicle Number"/>
+                            <field name="gender" string="Gender"/>
+
+                        </group>
+                        <group>
+                            <field name="phone_num" string="Phone No"/>
+                            <field name="email" string="Email"/>
+                            <field name="barcode" string="Barcode" widget="barcode" barcode_format="CODE128"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--    End of form view-->
+
+    <!--    For Kanban View-->
+    <record id="view_employee_parking_kanban" model="ir.ui.view">
+        <field name="name">employee.parking.reg.kanban</field>
+        <field name="model">employee.parking.reg</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="emp_type"/>
+                <field name="name"/>
+                <field name="reg_no"/>
+                <field name="vehicle_num"/>
+                <field name="phone_num"/>
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <strong>
+                                    <h3>
+                                        <field name="name" class="test-heading"/>
+                                    </h3>
+                                </strong>
+                            </div>
+                            <div>
+                                <field name="emp_type"/>
+                            </div>
+                            <div>
+                                <field name="vehicle_num"/>
+                            </div>
+                            <!--  <field name="image" widget="image" class="oe_avatar" options="{'size': [150, 150]}"/>-->
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <!--End of kanban View-->
+
+
+    <record id="view_employee_search" model="ir.ui.view">
+        <field name="name">employee.parking.reg.search</field>
+        <field name="model">employee.parking.reg</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="vehicle_num" string="Vehicle Number"
+                       filter_domain="[('vehicle_num', 'ilike', self)]"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_employee_parking" model="ir.actions.act_window">
+        <field name="name">Employee Registration</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee.parking.reg</field>
+        <field name="view_mode">tree,form,search,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Your First customer!
+            </p>
+        </field>
+    </record>
+
+
+<!--    <record id="kiosk_mode_id" model="ir.ui.menu">-->
+<!--        <field name="name">Kiosk Mode</field>-->
+<!--        <field name="action" ref="action_employee_parking"/>-->
+<!--        <field name="sequence">10</field>-->
+<!--        <field name="parent_id" ref="menu_parking_root"/>-->
+<!--    </record>-->
+
+</odoo>

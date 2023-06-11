@@ -1,0 +1,35 @@
+<odoo>
+  <data>
+
+    <!-- Define the action -->
+    <record id="kiosk_mode_action_id" model="ir.actions.act_window">
+      <field name="name">employee.parking.reg.kiosk</field>
+      <field name="res_model">employee.parking.reg</field>
+      <field name="view_mode">kanban,tree,form</field>
+      <field name="view_id" ref="kiosk_mode_view_id"/>
+      <field name="domain">[('stage', '=', 'kanban_stage')]</field>
+      <field name="help" type="html">
+        <p class="oe_view_nocontent_create">
+          Start Kiosk Mode: Press the <span class="fa fa-arrows-alt"></span> button in the top right corner.
+        </p>
+      </field>
+    </record>
+
+    <!-- Define the view -->
+    <record id="kiosk_mode_view_id" model="ir.ui.view">
+      <field name="name">employee.parking.reg.view</field>
+      <field name="model">employee.parking.reg</field>
+      <field name="arch" type="xml">
+<!--        <tree>-->
+<!--          &lt;!&ndash; Your tree view definition &ndash;&gt;-->
+<!--        </tree>-->
+<!--        <form>-->
+<!--          &lt;!&ndash; Your form view definition &ndash;&gt;-->
+<!--        </form>-->
+<!--        <kanban>-->
+<!--          &lt;!&ndash; Your kanban view definition &ndash;&gt;-->
+<!--        </kanban>-->
+      </field>
+    </record>
+  </data>
+</odoo>

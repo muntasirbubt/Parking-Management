@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!--For tree view-->
+    <record id="view_inorout_parking_tree" model="ir.ui.view">
+        <field name="name">in.out.parking.tree</field>
+        <field name="model">in.out.parking</field>
+        <field name="arch" type="xml">
+            <tree decoration-success="state == 'out'"
+                  decoration-danger="state == 'in'">
+                <header>
+                    <button name='action_out' string='Out' type='object' class="oe_highlights"/>
+                </header>
+                <field name="emp_type" string="Employee Type"/>
+                <field name="rec_no" string="Record No" optional ="hide"/>
+                <field name="state" string="State" optional ="hide" />
+                <field name="veh_num" string="Vehicle Number"/>
+                <field name="entry_time" string="Entry Time"/>
+                <field name="exit_time" string="Exit Time" attrs="{'invisible': [('state', '=', 'in')]}"/>
+            </tree>
+        </field>
+    </record>
+    <!--End of tree view-->
+
+    <!--For form view-->
+    <record id="view_inorout_parking_form" model="ir.ui.view">
+        <field name="name">in.out.parking.form</field>
+        <field name="model">in.out.parking</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name='action_out' string='Out' type='object' states='in'
+                            class="oe_highlight" data-hotkey='l'/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h2>
+                            <group>
+                                <group>
+                                    <field name="emp_type" string="Employee Type"/>
+                                </group>
+                                <group>
+                                    <field name="veh_num" string="Vehicle Number"/>
+                                </group>
+                            </group>
+                        </h2>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="state" string="State"/>
+                            <field name="gender" string="Gender"/>
+                        </group>
+                        <group>
+                            <field name="entry_time" string="Entry Time"/>
+                            <field name="exit_time" string="Exit Time" attrs="{'invisible': [('state', '=', 'in')]}"/>
+<!--                            <field name="duration" string="Total Duration"/>-->
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="barcode" string="Barcode"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--    End of form view-->
+
+
+    <record id="view_in_out_search" model="ir.ui.view">
+        <field name="name">in.out.parking.search</field>
+        <field name="model">in.out.parking</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="veh_num" string="Vehicle Number"
+                       filter_domain="[('veh_num', 'ilike', self),('barcode', 'ilike', self)]"/>
+                <field name="state"/>
+            </search>
+        </field>
+    </record>
+
+
+    <record id="action_inorout_parking" model="ir.actions.act_window">
+        <field name="name">Parking Process</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">in.out.parking</field>
+        <field name="view_mode">tree,form,search</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create Your First Entry!
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

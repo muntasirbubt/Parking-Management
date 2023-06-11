@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_parking_scanning_form" model="ir.ui.view">
+        <field name="name">parking.wizard.inout.form</field>
+        <field name="model">parking.wizard.inout</field>
+        <field name="arch" type="xml">
+            <form string="Print Record">
+                <group>
+                    <group>
+                        <field name="scanning"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_print_report_employee" string='Action' type='object' class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_wizard_inout_parking" model="ir.actions.act_window">
+        <field name="name">Parking by Scanning</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">parking.wizard.inout</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_parking_scanning_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

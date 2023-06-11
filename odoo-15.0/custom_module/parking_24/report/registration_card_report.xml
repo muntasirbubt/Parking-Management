@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="registration_report_card">
+        <t t-call="web.html_container">
+            <t t-call="web.basic_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <t t-foreach="docs" t-as="o">
+                                <table class="table table-condensed" style="border: 3px solid black !important;">
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <span t-field="o.name"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <span>
+                                                            <strong>Registration No:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span>:</span>
+                                                    </td>
+                                                    <td class="text-center">
+
+                                                        <span t-field="o.reg_no"/>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="text-center">
+                                                        <span>
+                                                            <strong>Vehicle Number:</strong>
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span>:</span>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span t-field="o.vehicle_num"/>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <span t-field="o.barcode"/>
+                                                    </td>
+                                                </tr>
+
+                                            </table>
+<!--                                            <div class="text-center">-->
+<!--                                                &lt;!&ndash;                                                For generate the QR code &ndash;&gt;-->
+<!--                                                <image t-att-src="'/report/barcode/QR/'+o.barcode"-->
+<!--                                                       style="width:150px;height:75px" alt="Barcode"/>-->
+<!--                                            </div>-->
+                                        </td>
+                                    </tr>
+                                </table>
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

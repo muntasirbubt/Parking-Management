@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <menuitem id="menu_parking_root"
+              name="Parking Management"
+              web_icon="parking_24,static/description/icon.png"
+              sequence="0"/>
+    <menuitem id="menu_parking_reg_root"
+              name='Registration'
+              parent="menu_parking_root"
+              sequence="1"/>
+    <menuitem id="menu_processing_root"
+              name='Parking Process'
+              parent="menu_parking_root"
+              sequence="2"/>
+
+<!--    <menuitem id="menu_kiosk_root"-->
+<!--              name='Kiosk Mode'-->
+<!--              parent="menu_parking_root"-->
+<!--              sequence="4"/>-->
+<!--        <menuitem id="kiosk_mode_menu_item_id"-->
+<!--              name='Kiosk Mode'-->
+<!--              action="kiosk_mode_action_id"-->
+<!--              parent="menu_kiosk_root"-->
+<!--              sequence="20"/>-->
+
+
+
+
+    <menuitem id="menu_wizard_root"
+              name='Scanning In out'
+              parent="menu_parking_root"
+              sequence="3"/>
+
+    <menuitem id="menu_wizard_inout"
+              name='In Out'
+              action="action_wizard_inout_parking"
+              parent="menu_wizard_root"
+              sequence="20"/>
+
+    <menuitem id="menu_employee_reg"
+              name="Employee Registration"
+              action="action_employee_parking"
+              parent="menu_parking_reg_root"
+              sequence="2"/>
+
+
+    <menuitem id="menu_in_or_out_record"
+              name="In Out Process"
+              action="action_inorout_parking"
+              parent="menu_processing_root"
+              sequence="5"/>
+
+    <menuitem id="menu_report_record"
+              name="Reporting"
+              action="action_inorout_parking_report"
+              parent="menu_processing_root"
+              sequence="5"/>
+</odoo>

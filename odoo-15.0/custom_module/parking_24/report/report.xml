@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="report_employee_inout" model="ir.actions.report">
+        <field name="name">Customer Parking Report</field>
+        <field name="model">customer.parking.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">parking_24.action_employee_record</field>
+        <field name="report_file">parking_24.action_employee_record</field>
+        <field name="binding_model_id" ref="model_in_out_parking"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <record id="report_registration_inout" model="ir.actions.report">
+        <field name="name">Employee Parking registration</field>
+        <field name="model">employee.parking.reg</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">parking_24.registration_report_card</field>
+        <field name="report_file">parking_24.registration_report_card</field>
+        <field name="binding_model_id" ref="model_employee_parking_reg"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+    <record id="report_inout" model="ir.actions.report">
+        <field name="name">Parking In Out</field>
+        <field name="model">in.out.parking</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">parking_24.in_out_report_card</field>
+        <field name="report_file">parking_24.in_out_report_card</field>
+        <field name="binding_model_id" ref="model_in_out_parking"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
