@@ -19,20 +19,26 @@
         'wizard/wizard_inout_view.xml',
         'views/employee_reg_view.xml',
         'views/in_out_view.xml',
-        # 'views/kiosk_mode_view.xml',
-        'views/menu.xml',
+        'views/for_kiosk_mode_view.xml',
         'report/report.xml',
         'report/all_record.xml',
         'report/registration_card_report.xml',
         'report/in_out_report.xml',
+        'views/menu.xml',
+
+
 
     ],
     'application': True,
     'auto_install': False,
     'license': 'LGPL-3',
     'assets': {
-        # 'web.assets_frontend': [
-        #     '/parking_24/static/src/scss/style.scss',
-        # ],
+        'web.assets_backend': [
+            'parking_24/static/src/js/parking_kiosk.js',
+        ],
+        'web.assets_qweb': [
+            'parking_24/static/src/xml/**/*',
+        ],
+
     },
 }

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+      <record id="hr_attendance_action_kiosk_mode_test" model="ir.actions.client">
+        <field name="name">Attendances</field>
+        <field name="tag">hr_attendance_kiosk_mode_test</field>
+        <field name="target">fullscreen</field>
+    </record>
     <menuitem id="menu_parking_root"
               name="Parking Management"
               web_icon="parking_24,static/description/icon.png"
@@ -13,17 +18,21 @@
               parent="menu_parking_root"
               sequence="2"/>
 
-<!--    <menuitem id="menu_kiosk_root"-->
-<!--              name='Kiosk Mode'-->
-<!--              parent="menu_parking_root"-->
-<!--              sequence="4"/>-->
-<!--        <menuitem id="kiosk_mode_menu_item_id"-->
-<!--              name='Kiosk Mode'-->
-<!--              action="kiosk_mode_action_id"-->
-<!--              parent="menu_kiosk_root"-->
-<!--              sequence="20"/>-->
+    <menuitem id="menu_kiosk_root"
+              name='Kiosk Mode'
+              parent="menu_parking_root"
+              sequence="4"/>
+
+    <!--for attendence kiosk mode-->
+    <menuitem id="menu_hr_attendance_kiosk_no_user_mode"
+              name="Kiosk Mode"
+              parent="menu_kiosk_root"
+              sequence="10"
+              action="hr_attendance_action_kiosk_mode_test"/>
 
 
+
+    <!--    att-->
 
 
     <menuitem id="menu_wizard_root"
@@ -42,7 +51,18 @@
               action="action_employee_parking"
               parent="menu_parking_reg_root"
               sequence="2"/>
-
+    <!--For kiosk mode-->
+    <menuitem id="menu_employee_reg_kiosk"
+              name="Kiosk Mode"
+              action="action_employee_parking_kiosk"
+              parent="menu_kiosk_root"
+              sequence="2"/>
+    <menuitem id="menu_employee_reg_kiosk2"
+              name="Kiosk Mode2"
+              action="action_kiosk_attendance"
+              parent="menu_kiosk_root"
+              sequence="2"/>
+    <!--End of kiosk mode-->
 
     <menuitem id="menu_in_or_out_record"
               name="In Out Process"

@@ -15,11 +15,15 @@ class Employee_Parking(models.Model):
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('female', 'Female')], string="Gender")
     barcode = fields.Char(string="Barcode", compute="generate_barcode")
     # image = fields.Image(string="Image")
+    flags = fields.Char(string="Flags")
+    kiosk_mode = fields.Boolean(string="Kiosk Mode")
 
     @api.model
     def create(self, vals):
         vals['reg_no'] = self.env['ir.sequence'].next_by_code('employee.parking.reg')
         # print(vals)
+        if 'kiosk_mode' in self.env.context:
+            vals['kiosk_mode'] = self.env.context['kiosk_mode']
         return super(Employee_Parking, self).create(vals)
 
     @api.onchange('reg_no', 'vehicle_num')

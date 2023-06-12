@@ -23,7 +23,7 @@
                         </h4>
                     </div>
                     <div class="col-sm-5 mt16">
-                        <button class="o_hr_attendance_button_employees btn btn-primary mb16">
+                        <button class="o_parking_button_scan btn btn-primary mb16">
                             <div class="mb16 mt16">Identify Manually</div>
                         </button>
                     </div>

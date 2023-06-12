@@ -4,3 +4,4 @@ access.employee.parking.reg,access_employee_parking_reg,parking_24.model_employe
 access.in.out.parking,access_in_out_parking,parking_24.model_in_out_parking,base.group_user,1,1,1,1
 access.customer.parking.report,access_customer_parking_report,parking_24.model_customer_parking_report,base.group_user,1,1,1,1
 access.parking.wizard.inout,access_parking_wizard_inout,parking_24.model_parking_wizard_inout,base.group_user,1,1,1,1
+access.kiosk.attendance,access_kiosk_attendance,parking_24.model_kiosk_attendance,base.group_user,1,1,1,1

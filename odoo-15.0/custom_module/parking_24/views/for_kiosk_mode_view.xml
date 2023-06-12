@@ -1,0 +1,48 @@
+<odoo>
+    <record id="view_kiosk_attendance_form" model="ir.ui.view">
+        <field name="name">kiosk.attendance.form</field>
+        <field name="model">kiosk.attendance</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <!-- Display employee information -->
+                    <group>
+                        <field name="vehicle_num"/>
+                        <field name="employee_id"/>
+                    </group>
+
+                    <!-- Display check-in and check-out buttons -->
+                    <group>
+                        <button name="action_check_in" string="Check In" type="object" class="btn-primary"/>
+                        <button name="action_check_out" string="Check Out" type="object" class="btn-danger"/>
+                    </group>
+
+                    <!-- Display scanned barcode field -->
+                    <group>
+                        <field name="barcode" widget="barcode" barcode_format="CODE128"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="action_kiosk_attendance" model="ir.actions.act_window">
+        <field name="name">Kiosk Attendance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">kiosk.attendance</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_kiosk_attendance_form"/>
+        <field name="target">fullscreen</field>
+    </record>
+
+
+<!--    <data>-->
+<!--        <record id="menu_kiosk_attendance" model="ir.ui.menu">-->
+<!--            <field name="name">Kiosk Attendance</field>-->
+<!--            <field name="action" ref="action_kiosk_attendance"/>-->
+<!--            <field name="sequence" type="int">10</field>-->
+<!--            <field name="parent_id" ref="base.menu_time_and_attendance_root"/>-->
+<!--        </record>-->
+<!--    </data>-->
+</odoo>
