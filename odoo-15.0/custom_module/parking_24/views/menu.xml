@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-      <record id="hr_attendance_action_kiosk_mode_test" model="ir.actions.client">
+    <record id="hr_attendance_action_kiosk_mode_test" model="ir.actions.client">
         <field name="name">Attendances</field>
         <field name="tag">hr_attendance_kiosk_mode_test</field>
         <field name="target">fullscreen</field>
@@ -31,7 +31,6 @@
               action="hr_attendance_action_kiosk_mode_test"/>
 
 
-
     <!--    att-->
 
 
@@ -51,18 +50,6 @@
               action="action_employee_parking"
               parent="menu_parking_reg_root"
               sequence="2"/>
-    <!--For kiosk mode-->
-    <menuitem id="menu_employee_reg_kiosk"
-              name="Kiosk Mode"
-              action="action_employee_parking_kiosk"
-              parent="menu_kiosk_root"
-              sequence="2"/>
-    <menuitem id="menu_employee_reg_kiosk2"
-              name="Kiosk Mode2"
-              action="action_kiosk_attendance"
-              parent="menu_kiosk_root"
-              sequence="2"/>
-    <!--End of kiosk mode-->
 
     <menuitem id="menu_in_or_out_record"
               name="In Out Process"

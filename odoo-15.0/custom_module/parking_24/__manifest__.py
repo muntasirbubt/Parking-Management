@@ -19,7 +19,6 @@
         'wizard/wizard_inout_view.xml',
         'views/employee_reg_view.xml',
         'views/in_out_view.xml',
-        'views/for_kiosk_mode_view.xml',
         'report/report.xml',
         'report/all_record.xml',
         'report/registration_card_report.xml',
@@ -35,6 +34,7 @@
     'assets': {
         'web.assets_backend': [
             'parking_24/static/src/js/parking_kiosk.js',
+            'parking_24/static/src/scss/parking_style.scss',
         ],
         'web.assets_qweb': [
             'parking_24/static/src/xml/**/*',

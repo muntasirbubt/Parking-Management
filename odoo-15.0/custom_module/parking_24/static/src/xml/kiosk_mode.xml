@@ -2,8 +2,8 @@
 <template xml:space="preserve">
     <t t-name="HrAttendanceKioskMode_test">
         <div class="o_hr_attendance_kiosk_mode_container o_home_menu_background">
-            <!--            <span class="o_hr_attendance_kiosk_backdrop"/>-->
-            <!--            <div class="o_hr_attendance_clock text-center"/>-->
+            <span class="o_hr_attendance_kiosk_backdrop"/>
+            <div class="o_hr_attendance_clock text-center"/>
             <div class="o_hr_attendance_kiosk_mode o_barcode_main">
                 <h2>
                     <small>Welcome to</small>
