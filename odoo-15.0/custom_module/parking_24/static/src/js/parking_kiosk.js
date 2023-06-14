@@ -11,13 +11,27 @@ var QWeb = core.qweb;
 
 var ParkingKioskMode = AbstractAction.extend({
     events: {
-        "click .o_parking_button_scan": function() {
-            alert('Hello muntasir!')
-//            this.do_action('hr_attendance.hr_employee_attendance_action_kanban', {
-//                additional_context: {'no_group_by': true},
-//            });
-        },
+    "click .o_parking_button_scan": function() {
+//        alert('Hello muntasir!');
+        this.do_action({
+            type: 'ir.actions.act_window',
+            res_model: 'in.out.parking',
+            views: [[false, 'kanban'], [false, 'form'],[false, 'search']],
+            target: 'current',
+            context: {'no_group_by': true},
+        });
     },
+    "click .o_parking_button_scan2": function() {
+//        alert('Hello muntasir!');
+        this.do_action({
+            type: 'ir.actions.act_window',
+            res_model: 'parking.wizard.inout',
+            views: [[false, 'form']],
+            target: 'new',
+            context: {'no_group_by': true},
+        });
+    },
+},
 
     start: function () {
         var self = this;

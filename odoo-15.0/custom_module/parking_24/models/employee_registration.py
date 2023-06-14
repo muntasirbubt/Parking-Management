@@ -14,7 +14,7 @@ class Employee_Parking(models.Model):
     email = fields.Char(string="Email")
     gender = fields.Selection([('male', 'Male'), ('female', 'Female'), ('female', 'Female')], string="Gender")
     barcode = fields.Char(string="Barcode", compute="generate_barcode")
-    # image = fields.Image(string="Image")
+    image = fields.Image(string="Image")
     flags = fields.Char(string="Flags")
     kiosk_mode = fields.Boolean(string="Kiosk Mode")
 

@@ -11,8 +11,8 @@
                     <button name='action_out' string='Out' type='object' class="oe_highlights"/>
                 </header>
                 <field name="emp_type" string="Employee Type"/>
-                <field name="rec_no" string="Record No" optional ="hide"/>
-                <field name="state" string="State" optional ="hide" />
+                <field name="rec_no" string="Record No" optional="hide"/>
+                <field name="state" string="State" optional="hide"/>
                 <field name="veh_num" string="Vehicle Number"/>
                 <field name="entry_time" string="Entry Time"/>
                 <field name="exit_time" string="Exit Time" attrs="{'invisible': [('state', '=', 'in')]}"/>
@@ -20,6 +20,42 @@
         </field>
     </record>
     <!--End of tree view-->
+
+
+    <!--    For Kanban View-->
+    <record id="view_inOut_parking_kanban" model="ir.ui.view">
+        <field name="name">in.out.parking.kanban</field>
+        <field name="model">in.out.parking</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="emp_type" string="Employee Type"/>
+                <field name="rec_no" string="Record No" optional="hide"/>
+                <field name="state" string="State" optional="hide"/>
+                <field name="veh_num" string="Vehicle Number"/>
+                <field name="entry_time" string="Entry Time"/>
+                <field name="exit_time" string="Exit Time" attrs="{'invisible': [('state', '=', 'in')]}"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div>
+                                <h4>
+                                    <field name="veh_num"/>
+                                </h4>
+                                <h6>
+                                    <field name="state" string="State" optional="hide"/>
+                                </h6>
+
+                            </div>
+                            <div>
+                                <field name="rec_no" string="Record No" optional="hide"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
 
     <!--For form view-->
     <record id="view_inorout_parking_form" model="ir.ui.view">
@@ -52,7 +88,7 @@
                         <group>
                             <field name="entry_time" string="Entry Time"/>
                             <field name="exit_time" string="Exit Time" attrs="{'invisible': [('state', '=', 'in')]}"/>
-<!--                            <field name="duration" string="Total Duration"/>-->
+                            <!--                            <field name="duration" string="Total Duration"/>-->
                         </group>
                     </group>
                     <group>
@@ -84,7 +120,7 @@
         <field name="name">Parking Process</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">in.out.parking</field>
-        <field name="view_mode">tree,form,search</field>
+        <field name="view_mode">tree,form,search,kanban</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create Your First Entry!
