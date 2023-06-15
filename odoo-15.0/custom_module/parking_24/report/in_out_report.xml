@@ -12,35 +12,35 @@
                                 <table class="table table-condensed" style="border: 3px solid black !important;">
                                     <tr>
                                         <td>
-                                            <table>
-                                                <tr>
-                                                    <td class="text-center">
-                                                        <span>
-                                                            <strong>Vehicle Number:</strong>
-                                                        </span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span>:</span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span t-field="o.veh_num"/>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="text-center">
-                                                        <span>
-                                                            <strong>Record Number:</strong>
-                                                        </span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span>:</span>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <span t-field="o.rec_no"/>
-                                                    </td>
-                                                </tr>
+<!--                                            <table>-->
+<!--                                                <tr>-->
+<!--                                                    <td class="text-center">-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Vehicle Number:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td class="text-center">-->
+<!--                                                        <span>:</span>-->
+<!--                                                    </td>-->
+<!--                                                    <td class="text-center">-->
+<!--                                                        <span t-field="o.veh_num"/>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
+<!--                                                <tr>-->
+<!--                                                    <td class="text-center">-->
+<!--                                                        <span>-->
+<!--                                                            <strong>Record Number:</strong>-->
+<!--                                                        </span>-->
+<!--                                                    </td>-->
+<!--                                                    <td class="text-center">-->
+<!--                                                        <span>:</span>-->
+<!--                                                    </td>-->
+<!--                                                    <td class="text-center">-->
+<!--                                                        <span t-field="o.rec_no"/>-->
+<!--                                                    </td>-->
+<!--                                                </tr>-->
 
-                                            </table>
+<!--                                            </table>-->
 
 
                                             <div class="text-center">

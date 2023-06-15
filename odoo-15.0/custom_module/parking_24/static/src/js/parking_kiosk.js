@@ -21,22 +21,22 @@ var ParkingKioskMode = AbstractAction.extend({
             context: {'no_group_by': true},
         });
     },
-    "click .o_parking_button_scan2": function() {
-//        alert('Hello muntasir!');
-        this.do_action({
-            type: 'ir.actions.act_window',
-            res_model: 'parking.wizard.inout',
-            views: [[false, 'form']],
-            target: 'new',
-            context: {'no_group_by': true},
-        });
-    },
+//    "click .o_parking_button_scan2": function() {
+//        this.do_action({
+//            type: 'ir.actions.act_window',
+//            res_model: 'parking.wizard.inout',
+//            views: [[false, 'form']],
+//            target: 'new',
+//            context: {'no_group_by': true},
+//        });
+//    },
 },
 
     start: function () {
         var self = this;
-//        core.bus.on('barcode_scanned', this, this._onBarcodeScanned);
+        core.bus.on('barcode_scanned', this, this._onBarcodeScanned);
         self.session = Session;
+        console.log("Hello");
         const company_id = this.session.user_context.allowed_company_ids[0];
         var def = this._rpc({
                 model: 'res.company',
@@ -54,40 +54,44 @@ var ParkingKioskMode = AbstractAction.extend({
         return Promise.all([def, this._super.apply(this, arguments)]);
     },
 
-//    on_attach_callback: function () {
-//        // Stop polling to avoid notifications in kiosk mode
-//        this.call('bus_service', 'stopPolling');
-//        $('body').find('.o_ChatWindowHeader_commandClose').click();
-//    },
+    on_attach_callback: function () {
+        // Stop polling to avoid notifications in kiosk mode
+        this.call('bus_service', 'stopPolling');
+        $('body').find('.o_ChatWindowHeader_commandClose').click();
+    },
 
-//    _onBarcodeScanned: function(barcode) {
-//        var self = this;
-//        core.bus.off('barcode_scanned', this, this._onBarcodeScanned);
-//        this._rpc({
-//                model: 'hr.employee',
-//                method: 'attendance_scan',
-//                args: [barcode, ],
-//            })
-//            .then(function (result) {
-//                if (result.action) {
-//                    self.do_action(result.action);
-//                } else if (result.warning) {
-//                    self.displayNotification({ title: result.warning, type: 'danger' });
-//                    core.bus.on('barcode_scanned', self, self._onBarcodeScanned);
-//                }
-//            }, function () {
-//                core.bus.on('barcode_scanned', self, self._onBarcodeScanned);
-//            });
-//    },
+    _onBarcodeScanned: function(barcode) {
+        var self = this;
+//        alert(barcode)
+        core.bus.off('barcode_scanned', this, this._onBarcodeScanned);
+        console.log(barcode);
+        var self = this;
+        core.bus.off('barcode_scanned', this, this._onBarcodeScanned);
+        this._rpc({
+                model: 'in.out.parking',
+                method: 'attendance_scan2',
+                args: [barcode, ],
+            })
+            .then(function (result) {
+                if (result.action) {
+                    self.do_action(result.action);
+                } else if (result.warning) {
+                    self.displayNotification({ title: result.warning, type: 'danger' });
+                    core.bus.on('barcode_scanned', self, self._onBarcodeScanned);
+                }
+            }, function () {
+                core.bus.on('barcode_scanned', self, self._onBarcodeScanned);
+            });
+    },
 
     start_clock: function() {
-        this.clock_start = setInterval(function() {this.$(".o_hr_attendance_clock").text(new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit', second:'2-digit'}));}, 500);
+        this.clock_start = setInterval(function() {this.$(".o_hr_attendance_clock_test").text(new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit', second:'2-digit'}));}, 500);
         // First clock refresh before interval to avoid delay
-        this.$(".o_hr_attendance_clock").show().text(new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit', second:'2-digit'}));
+        this.$(".o_hr_attendance_clock_test").show().text(new Date().toLocaleTimeString(navigator.language, {hour: '2-digit', minute:'2-digit', second:'2-digit'}));
     },
 
     destroy: function () {
-//        core.bus.off('barcode_scanned', this, this._onBarcodeScanned);
+        core.bus.off('barcode_scanned', this, this._onBarcodeScanned);
         clearInterval(this.clock_start);
         clearInterval(this._interval);
         this._super.apply(this, arguments);

@@ -3,7 +3,7 @@
     <t t-name="HrAttendanceKioskMode_test">
         <div class="o_hr_attendance_kiosk_mode_container o_home_menu_background">
             <span class="o_hr_attendance_kiosk_backdrop"/>
-            <div class="o_hr_attendance_clock text-center"/>
+            <div class="o_hr_attendance_clock_test text-center"/>
             <div class="o_hr_attendance_kiosk_mode o_barcode_main">
                 <h2>
                     <small>Welcome to</small>
@@ -13,10 +13,8 @@
                      class="o_hr_attendance_kiosk_company_image"/>
                 <div class="row o_hr_attendance_kiosk_welcome_row">
                     <div class="col-sm-5 mt16">
-                        <button class="o_parking_button_scan2 btn btn-light mb16">
                             <img class="img img-fluid d-block mx-auto"
-                             src="/parking_24/static/src/img/barcode.png"/>
-                        </button>
+                                 src="/parking_24/static/src/img/barcode.png"/>
                         <h5 class="mt8 mb0 text-muted">Scan your badge</h5>
                     </div>
                     <div class="col-sm-2 mt32">
@@ -28,11 +26,11 @@
                         <button class="o_parking_button_scan btn btn-primary mb16">
                             <div class="mb16 mt16">Identify Manually</div>
                         </button>
-<!--                        <button class="o_parking_button_scan btn btn-primary mb16">-->
-<!--                            <img class="img img-fluid d-block mx-auto"-->
-<!--                             src="/parking_24/static/src/img/icon.png"/>-->
-<!--                            <div class="mb16 mt16">Identify Manually</div>-->
-<!--                        </button>-->
+                        <!--                        <button class="o_parking_button_scan btn btn-primary mb16">-->
+                        <!--                            <img class="img img-fluid d-block mx-auto"-->
+                        <!--                             src="/parking_24/static/src/img/icon.png"/>-->
+                        <!--                            <div class="mb16 mt16">Identify Manually</div>-->
+                        <!--                        </button>-->
                     </div>
                 </div>
             </div>

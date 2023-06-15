@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="hr_attendance_action_kiosk_mode_test" model="ir.actions.client">
-        <field name="name">Attendances</field>
+        <field name="name">Parking IN/OUT</field>
         <field name="tag">hr_attendance_kiosk_mode_test</field>
         <field name="target">fullscreen</field>
     </record>
